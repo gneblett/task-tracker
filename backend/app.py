@@ -1,49 +1,37 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app)  # Enable CORS for all routes of this Flask app
 
-tasks = [
-    {"id": 1, "title": "Task 1"},
-    {"id": 2, "title": "Task 2"},
-    {"id": 3, "title": "Task 3"},
+# Sample data
+boards = [
+    {"id": 1, "title": "Board 1", "groups": [{"id": 11, "title": "Group 1", "tasks": [{"id": 111, "title": "Task 1"}]}]},
+    {"id": 2, "title": "Board 2", "groups": [{"id": 22, "title": "Group 2", "tasks": [{"id": 222, "title": "Task 2"}]}]},
 ]
 
-@app.route('/tasks', methods=['DELETE'])
-def delete_task():
-    try:
-        task_id = int(request.args.get('id'))
+# Route to get all boards
+@app.route('/boards', methods=['GET'])
+def get_boards():
+    return jsonify({'boards': boards})
 
-        task = next((task for task in tasks if task['id'] == task_id), None)
-        if task:
-            tasks.remove(task)
-            return jsonify({'message': 'Task deleted successfully'}), 204  # Use 204 for DELETE success
-        else:
-            return jsonify({'error': 'Task not found'}), 404
+# Route to get groups of a specific board by name
+@app.route('/boards/<string:board_name>/groups', methods=['GET'])
+def get_groups_by_name(board_name):
+    board = next((board for board in boards if board['title'] == board_name), None)
+    if board:
+        return jsonify({'groups': board['groups']})
+    else:
+        return jsonify({'error': 'Board not found'}), 404
 
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+# Route to get tasks of a specific group by name
+@app.route('/groups/<string:group_name>/tasks', methods=['GET'])
+def get_tasks_by_group(group_name):
+    for board in boards:
+        for group in board['groups']:
+            if group['title'] == group_name:
+                return jsonify({'tasks': group['tasks']})
+    return jsonify({'error': 'Group not found'}), 404
 
-@app.route("/tasks", methods=["GET"])
-def get_tasks():
-    return jsonify({"tasks": tasks})
-
-@app.route("/tasks", methods=["POST"])
-def add_task():
-    try:
-        title = request.json.get("title")
-
-        if not title:
-            return jsonify({'error': 'Title is required in the request payload'}), 400
-
-        new_task = {"id": len(tasks) + 1, "title": title}
-        tasks.append(new_task)
-
-        return jsonify({"task": new_task}), 201
-
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
