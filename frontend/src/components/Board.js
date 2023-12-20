@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Group from './Group/Group';
+import Group from './Group';
 
 const Board = ({ title }) => {
     console.log('Board Component Name:', title);
