@@ -1,0 +1,13 @@
+.task {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    align-items: baseline;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.last-task {
+    border-bottom: none;
+}

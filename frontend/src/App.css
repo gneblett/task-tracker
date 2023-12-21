@@ -1,23 +1,55 @@
-body {
-  font-family: 'Arial', sans-serif;
+body,
+html,
+#root {
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
-.App {
-  text-align: center;
-  padding: 20px;
-}
-
-h1 {
-  color: #333;
-}
-
-form {
-  margin-bottom: 20px;
-}
-
-ul {
-  list-style: none;
+.ul {
+  margin: 0;
   padding: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app-header {
+  background-color: #f8f8f8;
+  color: #333;
+  text-align: left;
+  font-size: 1.25em;
+}
+
+.app-header h1 {
+  margin-left: 20px;
+}
+
+.app-content {
+  display: flex;
+  background-color: #f8f8f8;
+  flex-grow: 1;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.sidebar {
+  background-color: #ddd;
+  width: 20%;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 10px;
+  margin-left: 20px;
+  height: 100%;
 }

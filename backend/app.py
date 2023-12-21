@@ -6,8 +6,51 @@ CORS(app)  # Enable CORS for all routes of this Flask app
 
 # Sample data
 boards = [
-    {"id": 1, "title": "Board 1", "groups": [{"id": 11, "title": "Group 1", "tasks": [{"id": 111, "title": "Task 1"}]}]},
-    {"id": 2, "title": "Board 2", "groups": [{"id": 22, "title": "Group 2", "tasks": [{"id": 222, "title": "Task 2"}]}]},
+    {
+        "id": 1,
+        "title": "Board 1",
+        "groups": [
+            {
+                "id": 11,
+                "title": "Group 1",
+                "tasks": [
+                    {"id": 111, "title": "Task 1", "priority": "High", "status": "Pending"},
+                    {"id": 112, "title": "Task 2", "priority": "Medium", "status": "Completed"},
+                ],
+            },
+            {
+                "id": 12,
+                "title": "Group 2",
+                "tasks": [
+                    {"id": 113, "title": "Task 3", "priority": "Low", "status": "Pending"},
+                    {"id": 114, "title": "Task 4", "priority": "High", "status": "In Progress"},
+                ],
+            },
+        ],
+    },
+        {
+        "id": 2,
+        "title": "Board 2",
+        "groups": [
+            {
+                "id": 21,
+                "title": "Group 1",
+                "tasks": [
+                    {"id": 211, "title": "Task 1", "priority": "High", "status": "Pending"},
+                    {"id": 212, "title": "Task 2", "priority": "Medium", "status": "Completed"},
+                ],
+            },
+            {
+                "id": 22,
+                "title": "Group 2",
+                "tasks": [
+                    {"id": 223, "title": "Task 3", "priority": "Low", "status": "Pending"},
+                    {"id": 224, "title": "Task 4", "priority": "High", "status": "In Progress"},
+                ],
+            },
+        ],
+    },
+
 ]
 
 # Route to get all boards

@@ -1,0 +1,29 @@
+.group {
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.column-container {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-weight: bold;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.column {
+    text-align: center;
+    padding: 10px;
+}
+
+.group ul {
+    margin: 0;
+    padding: 0;
+}
