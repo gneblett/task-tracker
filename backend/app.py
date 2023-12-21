@@ -8,49 +8,56 @@ CORS(app)  # Enable CORS for all routes of this Flask app
 boards = [
     {
         "id": 1,
-        "title": "Board 1",
+        "title": "Project Management",
         "groups": [
             {
                 "id": 11,
-                "title": "Group 1",
+                "title": "To Do",
                 "tasks": [
-                    {"id": 111, "title": "Task 1", "priority": "High", "status": "Pending"},
-                    {"id": 112, "title": "Task 2", "priority": "Medium", "status": "Completed"},
-                ],
+                    {"id": 111, "title": "Create project plan", "priority": "High", "status": "Pending"},
+                    {"id": 112, "title": "Define project scope", "priority": "Medium", "status": "In Progress"},
+                    {"id": 113, "title": "Gather team feedback", "priority": "Low", "status": "Completed"}
+                ]
             },
             {
                 "id": 12,
-                "title": "Group 2",
+                "title": "In Progress",
                 "tasks": [
-                    {"id": 113, "title": "Task 3", "priority": "Low", "status": "Pending"},
-                    {"id": 114, "title": "Task 4", "priority": "High", "status": "In Progress"},
-                ],
+                    {"id": 121, "title": "Develop prototype", "priority": "High", "status": "In Progress"},
+                    {"id": 122, "title": "Conduct stakeholder meetings", "priority": "Medium", "status": "In Progress"}
+                ]
             },
-        ],
+            {
+                "id": 13,
+                "title": "Completed",
+                "tasks": [
+                    {"id": 131, "title": "Launch project", "priority": "High", "status": "Completed"},
+                    {"id": 132, "title": "Finalize documentation", "priority": "Low", "status": "Completed"}
+                ]
+            }
+        ]
     },
-        {
+    {
         "id": 2,
-        "title": "Board 2",
+        "title": "Bug Tracking",
         "groups": [
             {
                 "id": 21,
-                "title": "Group 1",
+                "title": "Open Bugs",
                 "tasks": [
-                    {"id": 211, "title": "Task 1", "priority": "High", "status": "Pending"},
-                    {"id": 212, "title": "Task 2", "priority": "Medium", "status": "Completed"},
-                ],
+                    {"id": 211, "title": "Fix critical security bug", "priority": "High", "status": "Pending"},
+                    {"id": 212, "title": "Address UI glitch", "priority": "Medium", "status": "In Progress"}
+                ]
             },
             {
                 "id": 22,
-                "title": "Group 2",
+                "title": "Resolved Bugs",
                 "tasks": [
-                    {"id": 223, "title": "Task 3", "priority": "Low", "status": "Pending"},
-                    {"id": 224, "title": "Task 4", "priority": "High", "status": "In Progress"},
-                ],
-            },
-        ],
-    },
-
+                    {"id": 221, "title": "Verify and close resolved bugs", "priority": "Low", "status": "Completed"}
+                ]
+            }
+        ]
+    }
 ]
 
 # Route to get all boards
