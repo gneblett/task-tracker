@@ -1,0 +1,19 @@
+.add-board {
+    display: inline-flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.add-board-btn {
+    color: #3b83ff;
+    padding: 6px;
+    cursor: pointer;
+    font-size: 42px;
+}
+
+.add-board-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}

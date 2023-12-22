@@ -19,29 +19,20 @@ html,
 
 .app-header {
   background-color: #f8f8f8;
-  color: #333;
+  padding: 10px;
   text-align: left;
   font-size: 1.25em;
 }
-
 .app-header h1 {
-  margin-left: 20px;
+  padding: 0px;
+  margin: 10px;
 }
-
 .app-content {
   display: flex;
   background-color: #f8f8f8;
   flex-grow: 1;
   box-sizing: border-box;
   justify-content: flex-start;
-  height: 100%;
-}
-
-.sidebar {
-  background-color: #ddd;
-  width: 20%;
-  padding: 20px;
-  box-sizing: border-box;
   height: 100%;
 }
 

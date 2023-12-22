@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -64,6 +64,18 @@ boards = [
 @app.route('/boards', methods=['GET'])
 def get_boards():
     return jsonify({'boards': boards})
+
+# Route to add a new board
+@app.route('/boards', methods=['POST'])
+def add_board():
+    data = request.get_json()
+    new_board = {
+        "id": len(boards) + 1,
+        "title": data.get('title', ''),
+        "groups": []  # Initialize with an empty list of groups
+    }
+    boards.append(new_board)
+    return jsonify({'message': 'Board added successfully', 'board': new_board}), 201
 
 # Route to get groups of a specific board by name
 @app.route('/boards/<string:board_name>/groups', methods=['GET'])
