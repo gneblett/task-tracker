@@ -44,3 +44,7 @@ html,
   margin-left: 20px;
   height: 100%;
 }
+
+input[type]:focus {
+  border-color: #3b83ff;
+}

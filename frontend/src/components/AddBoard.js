@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import AddButton from './AddButton';
 
-import { MdAddBox } from "react-icons/md";
 import "./AddBoard.css"
 
 const AddBoard = ({ onAddBoard }) => {
@@ -22,10 +22,8 @@ const AddBoard = ({ onAddBoard }) => {
                 value={newBoardTitle}
                 onChange={(e) => setNewBoardTitle(e.target.value)}
             />
-            <MdAddBox className="add-board-btn" onClick={handleAddBoard} />
+        <AddButton onClick={handleAddBoard}/>
         </div >
-
     );
 };
-
 export default AddBoard;

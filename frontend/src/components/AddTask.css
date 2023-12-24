@@ -1,17 +1,13 @@
-.add-board {
+.add-task {
     display: inline-flex;
     align-items: center;
-    margin: 10px;
+    margin-bottom: 5px;
 }
 
-.add-board-input {
+.add-task-input {
     flex-grow: 1;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 6px;
     outline: none;
-}
-
-input[type]:focus {
-    border-color: #3b83ff;
 }

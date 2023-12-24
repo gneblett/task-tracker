@@ -1,12 +1,14 @@
 import React from 'react';
 import Task from './Task';
+import AddTask from './AddTask';
 
 import "./Group.css"
 
-const Group = ({ group }) => {
+const Group = ({ group, onAddTask }) => {
     return (
         <div className="group">
             <h2 className="group-title">{group.title}</h2>
+            <AddTask onAddTask={onAddTask} groupTitle={group.title} />
             <div className="column-container">
                 <div className="columns">
                     <div className="column">Name</div>

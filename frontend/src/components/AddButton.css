@@ -1,0 +1,8 @@
+.add-button-container {
+    cursor: pointer;
+    display: flex;
+}
+
+.add-button-icon:hover {
+    color: #2e69cf;
+}

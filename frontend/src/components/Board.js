@@ -22,12 +22,37 @@ const Board = ({ title }) => {
     }
   };
 
+  const handleAddTask = async (groupTitle, newTaskTitle) => {
+    try {
+      const response = await fetch(`http://localhost:5000/boards/${title}/groups/${groupTitle}/tasks`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title: newTaskTitle,
+          priority: 'Low',
+          status: 'Pending', 
+        }),
+      });
+
+      if (response.ok) {
+        fetchGroups(); // Refresh the list of groups and tasks
+      } else {
+        console.error('Error adding task:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error adding task:', error);
+    }
+  };
+
+
   return (
     <div className="board-container">
       <h2 className="board-title">{title}</h2>
       <div>
         {groups && groups.map((group) => (
-          <Group key={group.id} group={group} />
+          <Group key={group.id} group={group} onAddTask={handleAddTask} />
         ))}
       </div>
     </div>

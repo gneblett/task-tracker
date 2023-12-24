@@ -4,6 +4,14 @@
     border-radius: 5px;
 }
 
+.group-title {
+    margin-bottom:0px;
+}
+
+.group ul {
+    margin: 0;
+    padding: 0;
+}
 .column-container {
     border-radius: 5px;
     border: 1px solid #ddd;
@@ -23,7 +31,5 @@
     padding: 10px;
 }
 
-.group ul {
-    margin: 0;
-    padding: 0;
-}
+
+
