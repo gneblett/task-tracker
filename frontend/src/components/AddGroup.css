@@ -1,0 +1,17 @@
+.add-group {
+  display: inline-flex;
+  align-items: center;
+  margin: 0px 0px 0px 30px;
+}
+
+.add-group-input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+}
+
+input[type]:focus {
+  border-color: #3b83ff;
+}

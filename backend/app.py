@@ -77,6 +77,21 @@ def add_board():
     boards.append(new_board)
     return jsonify({'message': 'Board added successfully', 'board': new_board}), 201
 
+@app.route('/boards/<string:board_name>/groups', methods=['POST'])
+def add_group(board_name):
+    data = request.get_json()
+    board = next((board for board in boards if board['title'] == board_name), None)
+    if board:
+        new_group = {
+        "id": len(board["groups"]) + 1,
+        "title": data.get('title', ''),
+        "tasks": []  # Initialize with an empty list of tasks
+        }
+        board["groups"].append(new_group)
+        return jsonify({'message': 'Group added successfully', 'group': new_group}), 201 
+    else:
+        return jsonify({'error': 'Board not found'}), 404
+
 @app.route('/boards/<string:board_name>/groups/<string:group_name>/tasks', methods=['POST'])
 def add_task(board_name, group_name):
     data = request.get_json()
